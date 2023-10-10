@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/src/output.css">
+
+    {% load static %}
+    <script src="{% static 'src/htmx.min.js'%}"></script>
+    <title>Document</title>
+</head>
+
+<body
+ hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+
+    {% include "components/navbar.html" %}
+
+   <div class="w-screen h-screen  bg-slate-300 p-6 ">
+    <form 
+        class="flex flex-col gap-2 items-center flex-wrap" hx-post="Results" hx-target="#result" hx-swap="innerHTML">
+        {% csrf_token %} 
+        <label for="url">URL</label>
+        <input type="url" name="url">
+
+      
+
+        <button
+        class="bg-orange-700 rounded-md pl-2 pr-2" type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+</div>
+
+</body>
+
+</html>
