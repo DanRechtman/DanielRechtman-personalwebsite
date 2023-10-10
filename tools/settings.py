@@ -13,11 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv, find_dotenv
-import mimetypes
+# import mimetypes
 
-mimetypes.add_type("text/javascript", ".js", True)
-mimetypes.add_type("text/html", ".html", True)
-mimetypes.add_type("text/css", ".css", True)
+# mimetypes.add_type("text/javascript", ".js", True)
+# mimetypes.add_type("text/html", ".html", True)
+# mimetypes.add_type("text/css", ".css", True)
 
 load_dotenv(find_dotenv())
 
@@ -34,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1"]
 
@@ -47,15 +47,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
+
     'django.contrib.staticfiles',
     'YoutubeApp'
 ]
-STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'YoutubeApp/static/'),
-)
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,3 +138,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
