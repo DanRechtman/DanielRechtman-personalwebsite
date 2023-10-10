@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'YoutubeApp'
 ]
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'YoutubeApp/static/'),
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
