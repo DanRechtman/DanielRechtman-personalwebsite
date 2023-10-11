@@ -63,7 +63,7 @@ def ToText(element:ET.Element):
 def youtube_trans_requests(url:str):
 
     with requests.session() as http_client:
-        value = http_client.get("https://www.youtube.com/watch?v=-jlYeQ3hOhY")
+        value = http_client.get(url)
         
         split_value = value.text.split('"captions":')
         captions_json = json.loads(
