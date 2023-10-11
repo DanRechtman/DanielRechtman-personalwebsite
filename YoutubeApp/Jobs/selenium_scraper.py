@@ -1,9 +1,13 @@
+import json
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import openai
 from dotenv import load_dotenv, find_dotenv
 import os
+import requests
+import xml.etree.ElementTree as ET
+
 
 
 def summary(text):
@@ -19,7 +23,7 @@ def summary(text):
         {"role":"user","content":f"Summarize the video transcript in 150 words: {text} "}
     ]
 
-)
+    )
     return result
 
 def youtube_trans(url:str):
@@ -53,3 +57,27 @@ def youtube_trans(url:str):
 
     return sum.choices[0].message.content
    
+def ToText(element:ET.Element):
+
+    return element.text
+def youtube_trans_requests(url:str):
+
+    with requests.session() as http_client:
+        value = http_client.get("https://www.youtube.com/watch?v=-jlYeQ3hOhY")
+        
+        split_value = value.text.split('"captions":')
+        captions_json = json.loads(
+            split_value[1].split(',"videoDetails')[0].replace('\n', '')
+        )
+        urls =captions_json["playerCaptionsTracklistRenderer"]["captionTracks"][0]["baseUrl"]
+
+        transcript=http_client.get(urls)
+        tree = ET.fromstring(transcript.text)
+        text_iter = tree.findall(".//text")
+
+
+        
+        for text in text_iter:
+            print(text.text)
+
+        return list(map(ToText,text_iter))

@@ -34,11 +34,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = [
-    'danielrechtman.azurewebsites.net'
+    'https://danielrechtman.azurewebsites.net',
+    'http://danielrechtman.azurewebsites.net'
 ]
 
 
