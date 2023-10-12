@@ -10,13 +10,13 @@
     {% load static %}
     <script src="{% static 'src/htmx.min.js'%}"></script>
     <title>Document</title>
+    {% include "components/navbar.html" %}
 </head>
 
 <body
- hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+ hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="bg-slate-200">
 
 
-    {% include "components/navbar.html" %}
     {% block content %}
     
     {% endblock %}

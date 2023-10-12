@@ -1,19 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
- <div class="w-screen h-screen  bg-slate-300 p-6 ">
+<div class="w-screen h-screen  bg-slate-200 p-8">
     <form 
-        class="flex flex-col gap-2 items-center flex-wrap" hx-post="Results" hx-target="#result" hx-swap="innerHTML">
+        class="flex flex-col gap-2 items-center flex-wrap" hx-post="Results" hx-target="this" hx-swap="outerHTML" hx-indicator="#spinner">
         {% csrf_token %} 
         <label for="url">URL</label>
         <input type="url" name="url">
 
       
-
-        <button
-        class="bg-orange-700 rounded-md pl-2 pr-2" type="submit">Submit</button>
+        <button class="bg-orange-700 rounded-md pl-2 pr-2" type="submit">Submit</button>
+        <img id="spinner" class="htmx-indicator"  src="{% static 'src/system-outline-93-pizza-slice.gif'%}" alt="">
     </form>
-    <div id="result"></div>
-
+</div>
 
 {% endblock %}

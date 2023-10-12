@@ -1,6 +1,13 @@
-<details id="transcript">
-    <summary>Transcript</summary>
-    {% for result in transcript %}
-        {{result}}
-    {% endfor %}
-</details>
+<div class=" ">
+    <details class="flex flex-col  gap-2 items-center flex-wrap text-center" >
+        <summary>Transcript</summary>
+        
+        <ul  >
+            
+            {% for result in transcript %}
+                <li>{{result | safe}}</li>
+            {% endfor %}
+        </ul>
+    </details>
+    
+</div>

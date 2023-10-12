@@ -14,8 +14,6 @@ def summary(text):
     load_dotenv(find_dotenv())
     openai.organization = os.environ.get("OPENAI_ORG")
     openai.api_key = os.environ.get("OPENAI_KEY")
-    # openai.organization = "org-a7vqcLt9m3UhWIu7nYsiSeoI"
-    # openai.api_key = "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"
     result = openai.ChatCompletion.create(
     model="gpt-3.5-turbo-16k",
     messages=[
