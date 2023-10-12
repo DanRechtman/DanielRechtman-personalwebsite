@@ -38,10 +38,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1", "40.89.19.0","danielrechtman.com"]
 CSRF_TRUSTED_ORIGINS = [
+    "https://danielrechtman.com"
     'https://danielrechtman.azurewebsites.net',
-    'http://danielrechtman.azurewebsites.net',
-    "https://*.danielrechtman.com"
-    "http://*.danielrechtman.com"
+  
     
 ]
 
