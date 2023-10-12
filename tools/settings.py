@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1"]
+ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1", "40.89.19.0","danielrechtman.com"]
 CSRF_TRUSTED_ORIGINS = [
     'https://danielrechtman.azurewebsites.net',
     'http://danielrechtman.azurewebsites.net',
