@@ -24,36 +24,7 @@ def summary(text):
     )
     return result
 
-def youtube_trans(url:str):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
-    options.add_argument("--mute-audio")
 
-    driver = webdriver.Chrome(options)
-    driver.delete_all_cookies()
-    driver.execute_cdp_cmd(cmd="Network.clearBrowserCache",cmd_args={})
-
-    # ApplicationCache(driver).UNCACHED
-    driver.get(url)
-    driver.implicitly_wait(30)
-    element = driver.find_element(By.CSS_SELECTOR,"#bottom-row #description")
-    element.click()
-
-    button_trans = driver.find_element(By.CSS_SELECTOR,"#description-inline-expander [aria-label=\"Show transcript\"]")
-    
-    button_trans.click()
-
-    transcript = driver.find_elements(By.CSS_SELECTOR,"#segments-container ytd-transcript-segment-renderer")
-
-    listTrans = ""
-    for tran in transcript:
-        text = tran.get_attribute("innerText")
-        strip_text = text[4:].replace("\n","")
-        listTrans += strip_text + " "
-    driver.close()
-    sum = summary(listTrans)
-
-    return sum.choices[0].message.content
    
 def ToText(element:ET.Element):
 
@@ -77,5 +48,6 @@ def youtube_trans_requests(url:str):
         
         for text in text_iter:
             print(text.text)
+        list_of_text = ' '.join(list(map(ToText,text_iter)))
 
-        return list(map(ToText,text_iter))
+        return list_of_text
