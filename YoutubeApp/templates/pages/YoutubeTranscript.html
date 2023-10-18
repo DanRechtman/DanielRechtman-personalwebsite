@@ -4,10 +4,14 @@
 {% block content %}
 <div class="w-screen h-screen  bg-slate-200 p-8">
     <form 
-        class="flex flex-col gap-2 items-center flex-wrap" hx-post="Results" hx-target="this" hx-swap="outerHTML" hx-indicator="#spinner">
+        class="flex flex-col gap-2 items-center flex-wrap " 
+        hx-post="Results" hx-target="this" hx-swap="outerHTML" hx-indicator="#spinner">
         {% csrf_token %} 
-        <label for="url">URL</label>
-        <input type="url" name="url">
+        <p>Please Enter a Youtube Video. And I will create an accurate summary of the video</p>
+        <div class="">
+            <label for="url">Youtube URL: </label>
+            <input type="url" name="url">
+        </div>
 
       
         <button class="bg-orange-700 rounded-md pl-2 pr-2" type="submit">Submit</button>

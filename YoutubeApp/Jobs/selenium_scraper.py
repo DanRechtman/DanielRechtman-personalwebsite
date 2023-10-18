@@ -7,7 +7,19 @@ from dotenv import load_dotenv, find_dotenv
 import os
 import requests
 import xml.etree.ElementTree as ET
+from lxml import etree, html
+from bs4 import BeautifulSoup
+import re
 
+
+
+def find_between(s, first, last):
+    try:
+        start = s.index(first) + len(first)
+        end = s.index(last, start)
+        return s[start:end]
+    except ValueError:
+        return ""
 
 
 def summary(text):
@@ -29,6 +41,27 @@ def summary(text):
 def ToText(element:ET.Element):
 
     return element.text
+
+def youtube_title_request(url:str):
+    headers= {"User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"}
+    with requests.session() as http_client:
+        page = requests.get(url,headers=headers)
+
+        split_value = page.text.split('"title":')
+
+        title_json = json.loads(
+            split_value[2].split(',"description')[0]
+            
+        )
+      
+        data_hopefully = find_between(page.text,"var ytInitialData = ",";")
+
+        youtube_data = json.loads(data_hopefully)
+        title = youtube_data['contents']['twoColumnWatchNextResults']['results']['results']['contents'][0]['videoPrimaryInfoRenderer']['title']
+        return title_json['simpleText']
+     
+
+
 def youtube_trans_requests(url:str):
 
     with requests.session() as http_client:
