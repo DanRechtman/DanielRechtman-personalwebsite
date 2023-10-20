@@ -1,0 +1,52 @@
+details[open] summary + p {
+    animation: sweep 1s ease-in-out;
+
+}
+nav li {
+    /* background-color: #e0ffff; */
+    transition: ease-in 0.25s;
+}
+
+nav li:hover:nth-child(odd):not(:first-child){
+    /* background-color: #e0ffff; */
+    box-shadow: 10px 5px 5px grey;
+    transform: translateX(-50px) scale(1.25);
+}
+nav li:hover:nth-child(even){
+    /* background-color: #e0ffff; */
+    box-shadow: -10px 5px 5px grey;
+
+    transform: translateX(50px) scale(1.25);
+}
+.vert {
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    margin-top: 100px;
+   
+    /* display: flex; */
+    /* flex-flow: column wrap; */
+
+
+}
+
+@keyframes menuBar {
+    0% { transform: scale(1);}
+    100% { transform: translateY(-10px);transform: scale(1.5);}
+}
+@keyframes sweep {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+}
+
+
+@keyframes EaseIn {
+    0% {opacity: 0; transform: scale(0);}
+
+    50% {opacity: 0.75;}
+
+    100% {opacity: 1; transform: scale(1);}
+}
+
+.onLoad {
+    animation: EaseIn 1s;
+}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="bg-red-800">PAGE CSS IS STILL IN PROGRESS</h1>
+<div class="onLoad flex flex-row flex-wrap p-8">
+    {% for transcript in transcripts %}
+
+        <details class="border-solid border-2 border-black">
+            <summary class=""><p class="vert">{{transcript.YoutubeId}}</p></summary>
+            
+            <p>{{transcript.Summary | safe}}</p>
+        </details>
+    {% endfor %}
+    
+</div>
+{% endblock %}

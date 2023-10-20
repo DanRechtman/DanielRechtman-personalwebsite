@@ -17,6 +17,9 @@ def index(request):
 def YoutubePage(request):
     template = loader.get_template("base.html")
     return render(request,"pages/YoutubeTranscript.html")
+def YoutubePageGetAll(request):
+    allTranscripts = YoutubeTranscription.objects.all()
+    return render(request,"pages/GetAll.html",{"transcripts":allTranscripts})
 
 
 def Results(request:HttpRequest):
