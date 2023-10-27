@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SITE_ID=2
 ALLOWED_HOSTS = ["danielrechtman.azurewebsites.net","127.0.0.1", "40.89.19.0","danielrechtman.com", "www.danielrechtman.com"]
 CSRF_TRUSTED_ORIGINS = [
     "https://danielrechtman.com"
@@ -59,10 +59,23 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
 
     'django.contrib.staticfiles',
-    'YoutubeApp'
+    'YoutubeApp',
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google"
 ]
 
-
+SOCIALACCOUNT_PROVIDERS ={
+    "google":{
+        "SCOPE":[
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS":{"access_type":"online"}
+    }
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -72,6 +85,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'tools.urls'
@@ -154,3 +168,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend"
+)
+
+LOGIN_REDIRECT_URL = "/"
+
+LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+

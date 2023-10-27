@@ -64,4 +64,3 @@ def Results(request:HttpRequest):
                 YoutubeTrans.save()
                 return render(request,"components/Result.html",{"transcript":result,"title":title})
         
-

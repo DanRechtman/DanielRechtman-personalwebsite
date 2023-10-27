@@ -1,9 +1,9 @@
-details > summary {
-    list-style: none;
+/* details > summary {
+    list-style-type: "\2573";
   }
   details > summary::-webkit-details-marker {
-    display: none;
-  }
+    list-style-type: "\2573";
+  } */
 
 details[open] summary + p {
     animation: sweep 1s ease-in-out;

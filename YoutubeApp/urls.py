@@ -7,5 +7,5 @@ urlpatterns = [
     path("YoutubePage", views.YoutubePage, name="YoutubePage"),
     path("YoutubePage/GetAll", views.YoutubePageGetAll, name="YoutubePage"),
 
-    path("Results",views.Results)
+    path("Results",views.Results),
 ]

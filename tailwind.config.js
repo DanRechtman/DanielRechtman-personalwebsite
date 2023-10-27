@@ -4,8 +4,8 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
-    "YoutubeApp/**/*.html",
-    "YoutubeApp/*.*.html",
+    "YoutubeApp/templates/**/*.html",
+    "YoutubeApp/templates/*.*.html",
     
 ],
   theme: {
