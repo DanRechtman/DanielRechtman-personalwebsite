@@ -60,7 +60,7 @@ INSTALLED_APPS = [
 
     'django.contrib.staticfiles',
     'YoutubeApp',
-    "django.contrib.sites",
+    # "django.contrib.sites",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
