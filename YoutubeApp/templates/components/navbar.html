@@ -6,9 +6,10 @@
       <li class="tracking-tighter text-center"> <a href="/YoutubePage" class="">Youtube Transcript Tool</a></li>
       <li class="tracking-tighter text-center"> <a href="/YoutubePage/GetAll" class="">List of All Transcripts</a></li>
       {%if user.is_authenticated %}
-        <li class="tracking-tighter text-center"> <a href="accounts/logout/" class="">Logout</a></li>
+        <li class="tracking-tighter text-center"> <a href="/accounts/logout/" class="">Logout</a></li>
+        <li class="tracking-tighter text-center"> <a href="/CurrentlyWatching" class="">Currently Watching</a></li>
       {%else%}
-        <li class="tracking-tighter text-center"> <a href="accounts/google/login/?next=/" class="">Login</a></li>
+        <li class="tracking-tighter text-center"> <a href="/accounts/google/login/?next=/" class="">Login</a></li>
       {%endif%}
     </div>
   </ul>

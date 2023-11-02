@@ -9,3 +9,10 @@ class Helper:
             return classmodel.objects.get(**kwargs)
         except classmodel.DoesNotExist:
             return None
+        
+    def getall_or_none(classmodel:classmodel, **kwargs)->Tuple[classmodel,None]:
+        try:
+            return classmodel.objects.get(**kwargs)
+        except classmodel.DoesNotExist:
+            return None
+

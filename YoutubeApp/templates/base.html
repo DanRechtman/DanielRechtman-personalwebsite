@@ -12,14 +12,19 @@
     <script src="{% static 'src/htmx.min.js'%}"></script>
     <title>Document</title>
     {% include "components/navbar.html" %}
+
+    <script defer src="{% static 'src/SearchItem.js' %}"></script>
 </head>
 
 <body
  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="bg-stone-100">
 
-    {% if user.is_authenticated %}
+<!--    {% if user.is_authenticated %}
         <p>You are signed in as {{user.username}}</p>
     {%endif%}
+
+-->
+  
     {% block content %}
     
     {% endblock %}

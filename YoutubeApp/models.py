@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -11,3 +11,10 @@ class YoutubeTranscription(models.Model):
     cached=models.BooleanField()
     Transcript = models.TextField()
     Summary = models.TextField()
+
+
+class UserWatching(models.Model):
+    User = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    Title=models.CharField()
+    MovieId = models.CharField(null=True,max_length=50,unique=True)
+    TvShowId= models.CharField(null=True,max_length=50,unique=True)
