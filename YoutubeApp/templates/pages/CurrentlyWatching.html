@@ -5,10 +5,10 @@
 <main class="flex flex-col text-center p-10">
     <div id="parent">
         <p>Search for a movie and add it to your watch list</p>
-        <input class="mb-2" hx-boost='true' hx-post='/movies' hx-target='#parent' hx-swap="outerHTML" name="Search" hx-trigger="keyup[keyCode==13]"/>
+        <input type="search"  class="mb-2" hx-boost='true' hx-post='/movies' hx-target='#parent' hx-swap="outerHTML" name="Search" hx-trigger="keyup[keyCode==13] "/>
 
         <p>Search for a TV Show and add it to your watch list</p>
-        <input class="mb-2" hx-post='/tvshow' hx-target='#parent' hx-swap="outerHTML" name="Search" hx-trigger="keyup[keyCode==13]"/>
+        <input type="search"  class="mb-2" hx-boost='true' hx-post='/tvshow' hx-target='#parent' hx-swap="outerHTML" name="Search" hx-trigger="keyup[keyCode==13]"/>
     </div>
 
 
