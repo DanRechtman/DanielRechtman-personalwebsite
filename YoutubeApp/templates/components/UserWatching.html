@@ -1,7 +1,92 @@
-
 <div class="onLoad">
-    {% for entry in allCurrent %}
-        <p>{{entry.Title}}</p>
-    {% endfor %}
+
+
+    <div class="flew flex-row">
+        <button class="btn-primary">Watched</button>
+        <button class="btn-primary">Going to Watch</button>
+    </div>
+    <div class="mx-auto px-4 md:px-6 max-w-2xl grid gap-12">
+
+        {% for thing in movies %}
+        <div class="flex gap-4" id="movie_{{forloop.counter0}}">
+            <span class="relative flex shrink-0 overflow-hidden rounded-full w-20 h-20 border">
+                <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">
+                    <img src="https://image.tmdb.org/t/p/w500/{{thing.poster_path}}" alt="" class="justify-start h-16">
+                </span>
+            </span>
+            <div class="grid gap-4">
+                <button type="button" class="btn-close" hx-delete="/deleteEntertainment/{{thing.db_id}}"
+                    hx-target="#movie_{{forloop.counter0}}">X</button>
+                <div class="flex gap-4 items-start">
+                    <div class="grid gap-0.5 text-sm">
+                        <h3 class="font-semibold">{{thing.original_title}}</h3>
+                        <time class="text-sm text-zinc-500 dark:text-zinc-400">{{thing.release_date}}</time>
+                    </div>
+                </div>
+                <select name="states" id="states" hx-patch="updateEntertainment/{{thing.db_id}}" hx-target="this"
+                    hx-swap="outerHTML" >
+                    {% for state in states %}
+                        {% if thing.state == state %}
+                            <option value="{{state}}" selected>{{state}}</option>
+                        {% else %}
+                            <option value="{{state}}">{{state}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                State: {{thing.state}}
+                <div class="text-sm leading-loose text-zinc-500 dark:text-zinc-400">
+                    <p>
+                        {{thing.overview}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+        {% for thing in tv %}
+        <div class="flex gap-4" id="tv_{{forloop.counter0}}">
+            <input type="hidden" name="{{thing.id}}">
+            <span class="relative flex shrink-0 overflow-hidden rounded-full w-20 h-20 border">
+                <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">
+                    <img src="https://image.tmdb.org/t/p/w500/{{thing.poster_path}}" alt="" class="justify-start h-16">
+                </span>
+            </span>
+            <div class="grid gap-4">
+                <button type="button" class="btn-close" hx-delete="/deleteEntertainment/{{thing.db_id}}"
+                    hx-target="#tv_{{forloop.counter0}}">X</button>
+
+                <div class="flex gap-4 items-start">
+                    <div class="grid gap-0.5 text-sm">
+                        <h3 class="font-semibold">{{thing.original_name}}</h3>
+                        <time class="text-sm text-zinc-500 dark:text-zinc-400">{{thing.first_air_date}}</time>
+                    </div>
+
+                </div>
+                <select name="states" id="states">
+                    {% for state in states %}
+                    {% if thing.state == state %}
+                    <option value="{{state}}" selected="selected">{{state}}</option>
+
+                    {% else %}
+                    <option value="{{state}}">{{state}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                State: {{thing.state}}
+                <div class="text-sm leading-loose text-zinc-500 dark:text-zinc-400">
+                    <p>
+                        {{thing.overview}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+
 
 </div>

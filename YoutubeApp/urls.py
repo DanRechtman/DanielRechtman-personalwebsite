@@ -12,11 +12,17 @@ urlpatterns = [
 
     path("CurrentlyWatching",views.CurrentlyWatching,name="watching"),
 
-    path("movies",views.Movies,name="movies"),
-    path("tvshow",views.TV_Show,name="movies"),
+    path("getresults",views.GetResults,name="getresults"),
+
 
     path("addEntertainment",views.addEntertainment,name="addMovie"),
+    path("deleteEntertainment/<url_id>",views.deleteEntertainment,name="GetUserWatching"),
 
+    path("GetEntertainment/<index_id>",views.getEntertainment,name="GetEntertainment"),
+    path("updateEntertainment/<index_id>",views.updatetEntertainment,name="updateEntertainment"),
+
+    
     path("GetUserWatching",views.GetUserWatching,name="GetUserWatching"),
+
 
 ]

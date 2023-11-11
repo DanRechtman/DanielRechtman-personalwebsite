@@ -1,0 +1,35 @@
+<div class="onLoad flex gap-4" id="movie_{{index_id}}">
+    <span class="relative flex shrink-0 overflow-hidden rounded-full w-20 h-20 border">
+        <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">
+            <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="" class="justify-start h-16">
+        </span>
+    </span>
+    <div class="grid gap-4">
+        <button type="button" class="btn-close" hx-delete="/deleteEntertainment/{{db_id}}"
+            hx-target="#movie_{{index_id}}">X</button>
+        <div class="flex gap-4 items-start">
+            <div class="grid gap-0.5 text-sm">
+                <h3 class="font-semibold">{{original_title}}</h3>
+                <time class="text-sm text-zinc-500 dark:text-zinc-400">{{release_date}}</time>
+            </div>
+        </div>
+        <select name="states" id="states" hx-patch="updateEntertainment/{{db_id}}" hx-trigger="change"  >
+                {% for istate in states %}
+                        {% if state == istate %}
+                            <option value="{{istate}}" selected="">{{istate}}</option>
+                        {% else %}
+                            <option value="{{istate}}">{{istate}}</option>
+                        {% endif %}
+                    {% endfor %}
+        </select>
+        <div class="text-sm leading-loose text-zinc-500 dark:text-zinc-400">
+            <p>
+                {{overview}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div hx-trigger="revealed" hx-get="{% url 'GetEntertainment' index_id=next_index  %}"  hx-swap="afterend">
+
+</div>

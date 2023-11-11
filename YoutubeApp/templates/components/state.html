@@ -1,0 +1,7 @@
+{% for istate in states %}
+    {% if state == istate %}
+        <option value="{{istate}}" selected>{{istate}}</option>
+    {% else %}
+        <option value="{{istate}}">{{istate}}</option>
+    {% endif %}
+{% endfor %}
