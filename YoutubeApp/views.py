@@ -114,7 +114,7 @@ def GetResults(request:HttpRequest):
         type = request.POST["type"]
         movies_list = Filter(type,request.POST["Search"])
       
-        final_list = [movie for movie in movies_list if movie.vote_count>5 and movie.original_language=="en"] 
+        final_list = [movie for movie in movies_list if movie.vote_count>0 and movie.original_language=="en"] 
         
         sorted_list = sorted(final_list,key=lambda x:x.popularity,reverse=True)
         if (type == "M"):
