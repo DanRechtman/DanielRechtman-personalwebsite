@@ -23,7 +23,7 @@ nav li {
 
 .background-gradient {
     background: rgb(19,78,74);
-background: linear-gradient(180deg, rgba(19,78,74,1) 0%, rgba(55,65,81,1) 35%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(180deg, rgba(19,78,74,1) 0%, rgba(55,65,81,1) 35%, rgba(0,0,0,1) 100%);
 }
 
 .max-chars{
@@ -47,6 +47,51 @@ background: linear-gradient(180deg, rgba(19,78,74,1) 0%, rgba(55,65,81,1) 35%, r
     }
 }
 
+@keyframes SkillsPassive {
+    0% {
+        z-index: 0;
+    }
+    50% {
+        z-index: 50;
+        transform: scale(1.1);
+    }
+    100% {
+        z-index: 0;
+        transform: scale(1);
+    
+    
+    }
+}
+@keyframes SkillsPassiveOpposite {
+    0% {
+        z-index: 50;
+        transform: scale(1.1);
+
+    }
+    50% {
+        z-index: 0;
+        transform: scale(1);
+    }
+    100% {
+        z-index: 50;
+        transform: scale(1.1);
+    
+    
+    }
+}
+:has(#playPause:not(:checked)) div .animation-skills{
+    animation-play-state: paused;
+    z-index: 10;
+    transform: scale(1);
+
+  }
+  
+.animation-skills:nth-child(2n){
+    animation: SkillsPassive 2s infinite;
+}
+.animation-skills:nth-child(2n+1){
+    animation: SkillsPassiveOpposite 2s infinite;
+}
 .animation-skills:hover {
     animation: Skills 1s;
     animation-fill-mode: forwards;
