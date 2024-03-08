@@ -52,11 +52,11 @@
                     <img src="https://image.tmdb.org/t/p/w500/{{thing.poster_path}}" alt="" class="justify-start h-16">
                 </span>
             </span>
-            <div class="grid gap-4">
-                <button type="button" class="btn-close" hx-delete="/deleteEntertainment/{{thing.db_id}}"
-                    hx-target="#tv_{{forloop.counter0}}">X</button>
+            <div class="flex  gap-4">
+                <button type="button" class="btn-close inline" hx-delete="/deleteEntertainment/{{thing.db_id}}"
+                    hx-target="#tv_{{forloop.counter0}}">Remove</button>
 
-                <div class="flex gap-4 items-start">
+                <div class="gap-4 items-start">
                     <div class="grid gap-0.5 text-sm">
                         <h3 class="font-semibold">{{thing.original_name}}</h3>
                         <time class="text-sm text-zinc-500 dark:text-zinc-400">{{thing.first_air_date}}</time>

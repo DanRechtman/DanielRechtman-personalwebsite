@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 class YoutubeTranscription(models.Model):
     YoutubeId = models.CharField(primary_key=True,max_length=50)
-    YoutubeURL = models.CharField(null=True,max_length=50)
+    YoutubeURL = models.CharField(null=True,max_length=100)
     dateRetrived= models.DateTimeField(auto_now=True)
     cached=models.BooleanField()
     Transcript = models.TextField()

@@ -1,39 +1,79 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="text-slate-800 w-screen h-screen">
-    <div class="flex flex-col items-center gap-4 p-4">
+<div class="background-gradient h-screen w-screen ">
+    <div class="flex flex-col gap-2 h-screen items-center pt-32 text-slate-300">
 
-        {# <a href="mailto:dannyrechtman@gmail.com">dannyrechtman@gmail.com</a> #}
-        <div
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-100 dark:border-gray-100">
-            <!--
-            <h2 class="font-bold">
-                Who Am I?
-            </h2>
-            <p>TOOD: Make less corny</p>
-            <p>I'm Daniel Rechtman, a computer science enthusiast with a strong educational background, including a
-                French Immersion High School Degree and a Bachelor of Science in Computer Science from York University,
-                Toronto. I'm your go-to person for all things tech! I'm well-versed in programming languages like HTML,
-                CSS, JavaScript, Python, Java, C#, SQL, and PHP, and I love working with frameworks such as React,
-                Django, FastAPI, HTMX, Tailwind, and Selenium. Currently, I'm rocking it as an Associate Quality
-                Engineer at Telus Health, where I dive into Agile ceremonies, create automated test cases, perform
-                performance testing, integrate SQL solutions, and boost DevOps processes. With my tech skills and
-                proactive approach, I'm ready to tackle any tech challenge that comes my way!</p> !-->
-        </div>
-        <hr class="w-11/12 border-2 rounded-md border-black  drop-shadow-xl"/>
-        <h2 class="font-semibold">Tools</h2>
-        <div
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-white dark:bg-gray-100 dark:border-gray-100 ">
-            <a href="/YoutubePage" class="hover:text-blue-800">Make a transcription of a Youtube Video by Entering the
-                URL</a>
-        </div>
-        <div
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-white dark:bg-gray-100 dark:border-gray-100 ">
-            <a href="/YoutubePage/GetAll" class="hover:text-blue-800"> List of all Previously Transcripted Videos</a>
+        <p class="text-xs">Hi my name is</p>
+        <h1 class="text-2xl font-semibold font">Daniel Rechtman</h1>
+        <p class="text-center max-chars">
+            I'm a programming enthusiast, working as an Automation Quality Engineer at Telus Health
+        </p>
+
+
+
+        <h2 class="mt-16">Skills</h2>
+        <div class="relative wrap">
+            <p
+                class="animation-skills absolute top-16 border-dotted border-2  border-black  bg-teal-800   z-10 rounded-full aspect-square p-8 ">
+                C#
+            </p>
+            <p
+                class="animation-skills absolute left-16 border-dotted border-2   border-black  bg-green-800   z-10 rounded-full aspect-square p-8 wrap ">
+                Selenium
+            </p>
+            <p
+                class="animation-skills absolute bg-emerald-800 border-dotted border-2 border-black   rounded-full p-8 aspect-square ">
+                Java
+            </p>
+            <p
+                class="animation-skills absolute right-[-10px] bg-cyan-800 border-dotted border-2 border-black   rounded-full p-8 aspect-square ">
+                Python
+            </p>
+            <p
+                class="animation-skills absolute top-[62px] right-[-5px] bg-green-800 border-dotted border-2 border-black   rounded-full p-8 aspect-square z-10 ">
+                SQL
+            </p>
+            <p
+                class="animation-skills absolute top-[74px] left-[66px] bg-yellow-800 border-dotted border-2 border-black   rounded-full p-8 aspect-square ">
+                Bash
+            </p>
+            <p
+                class="animation-skills absolute  top-[122px] right-[-30px] bg-yellow-900 border-dotted border-2 border-black  z-0  rounded-full p-8 aspect-square ">
+                PHP
+            </p>
+
         </div>
 
+
+        <h2 class="mt-64">Contact Info</h2>
+
+        <div>
+            <a href="https://www.github.com/DanRechtman" class='text-start mr-4 ' target="_blank" rel="noreferrer noopener">
+                <svg width="98" height="96" xmlns="http://www.w3.org/2000/svg" class="svg-scale inline">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                        fill="#24292f" />
+                </svg>
+                Github/DanRechtman
+            </a>
+            <a class='text-start mr-4' href="{% static 'src/DanielRechtmanResume.pdf'%}" target="_blank">
+                <img class='inline' src="{% static 'src/system-regular-14-article.png'%}" width="50" height="50" alt="">
+                Resume
+            </a>
+            <a class='text-start ' href="https://www.linkedin.com/in/daniel-rechtman-18257913b/" target="_blank"
+            
+                rel="noreferrer noopener">
+                <img class='inline' src="{% static 'src/LI-In-Bug.png'%}" width="50" height="50" alt="">
+
+                Linkedin
+                </a>
+        
+        </div>
     </div>
+
+
 
 </div>
 

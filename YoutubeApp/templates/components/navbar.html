@@ -1,17 +1,17 @@
-<nav class="flex items-center justify-center flex-wrap rounded-b-sm bg-slate-200 pt-2 pb-2 drop-shadow-md">
-  <ul>
-    <div class="">
-      <li><a href="/" class="font-serif font-bold tracking-widest text-3xl text-center">Daniel Rechtman</a></li>
-      <li class="tracking-tighter text-center"><a href="#" class="text-center" >Blog</a></li>
-      <li class="tracking-tighter text-center"> <a href="/YoutubePage" class="">Youtube Transcript Tool</a></li>
-      <li class="tracking-tighter text-center"> <a href="/YoutubePage/GetAll" class="">List of All Transcripts</a></li>
-      {%if user.is_authenticated %}
-        <li class="tracking-tighter text-center"> <a href="/accounts/logout/" class="">Logout</a></li>
-        <li class="tracking-tighter text-center"> <a href="/CurrentlyWatching" class="">Currently Watching</a></li>
-      {%else%}
-        <li class="tracking-tighter text-center"> <a href="/accounts/google/login/?next=/" class="">Login</a></li>
-      {%endif%}
-    </div>
+
+<nav class="flex justify-between bg-teal-900 pt-2 pb-2 drop-shadow-md w-full pr-8 text-slate-300">
+  <a href="/" class="font-serif font-bold tracking-widest text-3xl inline pl-2">Daniel Rechtman</a>
+  <ul class="inline-flex flex-row justify-end gap-4">
+    <li class="tracking-tighter text-center"><a href="#" class="inline text-center" >Blog</a></li>
+    <li class="tracking-tighter text-center"> <a href="/YoutubePage" class="inline">Youtube Transcript Tool</a></li>
+
+    {%if user.is_authenticated %}
+      <li class="tracking-tighter text-center"> <a href="/accounts/logout/" class="">Logout</a></li>
+      <li class="tracking-tighter text-center"> <a href="/CurrentlyWatching" class="">Currently Watching</a></li>
+    {%else%}
+      <li class="tracking-tighter text-center"> <a href="/accounts/google/login/?next=/" class="">Login</a></li>
+    {%endif%}
+    
   </ul>
   
  

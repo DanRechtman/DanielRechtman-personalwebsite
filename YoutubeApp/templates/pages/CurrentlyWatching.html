@@ -19,7 +19,7 @@
 </main>
 
 -->
-<section class="container mx-auto p-6">
+<section class=" container mx-auto p-6">
     <div class="flex flex-col gap-4">
         <form  hx-boost='true' hx-post='/getresults' hx-target='#results' hx-swap="innerHTML" hx-trigger="submit">
             <div class="relative">
@@ -51,8 +51,6 @@
 
         </form>
 
-        <div id="results">
-        </div>
         <div hx-trigger="revealed" hx-get="{% url 'GetEntertainment' index_id=1 %}"  hx-swap="afterend">
 
         </div>
